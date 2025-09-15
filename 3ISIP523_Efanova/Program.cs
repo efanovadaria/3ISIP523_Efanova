@@ -10,6 +10,7 @@ class Program
         int n;
         do
         {
+
             Console.Write("Введите количество операций (от 2 до 40): ");
         } while (!int.TryParse(Console.ReadLine(), out n) || n < 2 || n > 40);
 
