@@ -88,7 +88,7 @@ class Program
                     break;
 
                 case "4": 
-                    Console.Write("Введите курс для конвертации (курс рубля к доллару): ");
+                    Console.Write("Введите курс для конвертации: ");
                     if (double.TryParse(Console.ReadLine(), NumberStyles.Any, CultureInfo.InvariantCulture, out double rate) && rate > 0)
                     {
                         Console.WriteLine("\nСуммы в новой валюте:");
@@ -100,7 +100,8 @@ class Program
                         Console.WriteLine("Некорректный курс.");
                     }
                     break;
-
+                
+                
             }
         }
     }
