@@ -36,7 +36,7 @@ class Program
             Console.WriteLine("\nМеню:");
             Console.WriteLine("1. Вывод данных");
             Console.WriteLine("2. Статистика");
-            Console.WriteLine("3. Сортировка по цене (пузырьковая сортировка)");
+            Console.WriteLine("3. Сортировка по цене");
             Console.WriteLine("4. Конвертация валюты");
             Console.WriteLine("5. Поиск по названию");
             Console.WriteLine("0. Выход");
@@ -65,6 +65,40 @@ class Program
                     Console.WriteLine($"Среднее: {avg:F2} руб.");
                     Console.WriteLine($"Минимум: {min} руб.");
                     Console.WriteLine($"Максимум: {max} руб.");
+                    break;
+
+                case "3": 
+                    for (int i = 0; i < n - 1; i++)
+                    {
+                        for (int j = 0; j < n - i - 1; j++)
+                        {
+                            if (prices[j] > prices[j + 1])
+                            {
+                                double tempPrice = prices[j];
+                                prices[j] = prices[j + 1];
+                                prices[j + 1] = tempPrice;
+
+                                string tempName = names[j];
+                                names[j] = names[j + 1];
+                                names[j + 1] = tempName;
+                            }
+                        }
+                    }
+                    Console.WriteLine("\nДанные отсортированы по цене.");
+                    break;
+
+                case "4": 
+                    Console.Write("Введите курс для конвертации (курс рубля к доллару): ");
+                    if (double.TryParse(Console.ReadLine(), NumberStyles.Any, CultureInfo.InvariantCulture, out double rate) && rate > 0)
+                    {
+                        Console.WriteLine("\nСуммы в новой валюте:");
+                        for (int i = 0; i < n; i++)
+                            Console.WriteLine($"{names[i]}: {(prices[i] / rate):F2}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Некорректный курс.");
+                    }
                     break;
 
             }
