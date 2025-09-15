@@ -100,8 +100,29 @@ class Program
                         Console.WriteLine("Некорректный курс.");
                     }
                     break;
-                
-                
+                case "5":
+                    Console.Write("Введите название для поиска: ");
+                    string search = Console.ReadLine().ToLower();
+                    bool found = false;
+                    for (int i = 0; i < n; i++)
+                    {
+                        if (names[i].ToLower().Contains(search))
+                        {
+                            Console.WriteLine($"{names[i]}: {prices[i]} руб.");
+                            found = true;
+                        }
+                    }
+                    if (!found) Console.WriteLine("Ничего не найдено.");
+                    break;
+
+                case "0":
+                    Console.WriteLine("Выход из программы.");
+                    return;
+
+                default:
+                    Console.WriteLine("Некорректный выбор.");
+                    break;
+
             }
         }
     }
