@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3ISIP523_Efanova", "3ISIP523_Efanova\3ISIP523_Efanova.csproj", "{E8C84140-AD4E-4A11-AAF6-3AF3EC83EF17}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8C84140-AD4E-4A11-AAF6-3AF3EC83EF17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8C84140-AD4E-4A11-AAF6-3AF3EC83EF17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8C84140-AD4E-4A11-AAF6-3AF3EC83EF17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8C84140-AD4E-4A11-AAF6-3AF3EC83EF17}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E87E03A-D368-4973-8C76-AF7A1683F31A}
+	EndGlobalSection
+EndGlobal
