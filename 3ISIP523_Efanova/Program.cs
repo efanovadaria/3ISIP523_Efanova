@@ -37,7 +37,13 @@ namespace StoreApp
         public void PrintInfo()
         {
             Console.WriteLine($"Код: {Code} | Название: {Name} | Цена: {Prise} руб. | " + $"Количество: {Quantity} | В наличии: {(InStock ? "ДА" : "НЕТ")} | Категория: {Category}");
+        }
 
+        public void AddStock(int amount)
+        {
+            if (amount <= 0)
+                throw new ArgumentException("Количество не может быть отрицательным");
+            Quantity += amount;
         }
     }
 }
