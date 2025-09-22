@@ -10,12 +10,12 @@ namespace StoreApp
     {
         private static int nextID = 1;
 
-        public int Code { get; private set; }
-        public string Name { get; private set; }
-        public double Prise { get; private set; }
-        public int Quantity { get; private set; }
+        public int Code;
+        public string Name;
+        public double Prise;
+        public int Quantity;
         public bool InStock => Quantity > 0;
-        public Category Category { get; private set; }
+        public Category Category;
 
         public Product(string name, double price, int quantity, Category category)
         {
@@ -31,6 +31,12 @@ namespace StoreApp
             Prise = price;
             Quantity = quantity;
             Category = category;
+
+        }
+
+        public void PrintInfo()
+        {
+            Console.WriteLine($"Код: {Code} | Название: {Name} | Цена: {Prise} руб. | " + $"Количество: {Quantity} | В наличии: {(InStock ? "ДА" : "НЕТ")} | Категория: {Category}");
 
         }
     }
