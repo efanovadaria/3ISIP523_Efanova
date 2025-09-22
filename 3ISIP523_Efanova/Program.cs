@@ -45,5 +45,13 @@ namespace StoreApp
                 throw new ArgumentException("Количество не может быть отрицательным");
             Quantity += amount;
         }
+        public void Sell(int amount)
+        {
+            if (amount <= 0)
+                throw new ArgumentException("Количество должно быть положительным");
+            if (Quantity < amount)
+                throw new ArgumentException("Недостаточно товара на складе");
+            Quantity -= amount;
+        }
     }
 }
