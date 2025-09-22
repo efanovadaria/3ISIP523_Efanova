@@ -17,5 +17,21 @@ namespace StoreApp
         public bool InStock => Quantity > 0;
         public Category Category { get; private set; }
 
+        public Product(string name, double price, int quantity, Category category)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("Название товара не может быть пустым");
+            if (price <= 0) 
+                throw new ArgumentException("Цена должна быть больше нуля");
+            if (quantity < 0)
+                throw new ArgumentException("Количество не может быть отрицательным");
+
+            Code = nextID++;
+            Name = name;
+            Prise = price;
+            Quantity = quantity;
+            Category = category;
+
+        }
     }
 }
