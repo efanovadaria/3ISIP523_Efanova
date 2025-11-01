@@ -190,6 +190,7 @@ namespace StoreApp
                     Console.WriteLine("Неверный выбор категории. Попробуйте снова.");
                 }
             }
+
         }
     }
 }
