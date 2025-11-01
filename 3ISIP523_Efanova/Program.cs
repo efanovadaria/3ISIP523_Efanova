@@ -60,7 +60,6 @@ namespace TextStatisticsApp
             Console.WriteLine("\nРабота программы завершена.");
         }
 
-        // Метод анализа текста
         static TextStats AnalyzeText(string text)
         {
             TextStats stats = new TextStats();
