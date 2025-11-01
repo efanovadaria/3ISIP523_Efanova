@@ -191,6 +191,154 @@ namespace StoreApp
                 }
             }
 
+            static void AddProduct(List<Product> products)
+            {
+                Console.WriteLine("\n--- Добавление товара ---");
+                string name = ReadNonEmptyString("Название: ");
+                double price = ReadPositiveDouble("Цена (руб): ");
+                int quantity = ReadNonNegativeInt("Количество: ");
+                Category cat = ReadCategory();
+
+                try
+                {
+                    Product p = new Product(name, price, quantity, cat);
+                    products.Add(p);
+                    Console.WriteLine($"Товар добавлен. Код: {p.Code}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Не удалось добавить товар: " + ex.Message);
+                }
+            }
+
+            static void DeleteProduct(List<Product> products)
+            {
+                Console.WriteLine("\n--- Удаление товара ---");
+                int code = ReadPositiveInt("Введите код товара для удаления: ");
+                Product p = products.Find(x => x.Code == code);
+                if (p == null)
+                {
+                    Console.WriteLine("Товар с таким кодом не найден.");
+                    return;
+                }
+
+                Console.Write($"Подтвердите удаление товара '{p.Name}' (код {p.Code}) — Д/Н: ");
+                string confirm = Console.ReadLine()?.Trim().ToLower();
+                if (confirm == "д" || confirm == "да")
+                {
+                    products.Remove(p);
+                    Console.WriteLine("Товар удалён.");
+                }
+                else
+                {
+                    Console.WriteLine("Удаление отменено.");
+                }
+            }
+            static void OrderSupply(List<Product> products)
+            {
+                Console.WriteLine("\n--- Заказать поставку (пополнить запас) ---");
+                int code = ReadPositiveInt("Введите код товара: ");
+                Product p = products.Find(x => x.Code == code);
+                if (p == null)
+                {
+                    Console.WriteLine("Товар с таким кодом не найден.");
+                    return;
+                }
+                int amount = ReadPositiveInt("Введите количество для пополнения: ");
+                try
+                {
+                    p.AddStock(amount);
+                    Console.WriteLine($"Запасы пополнены. Текущее количество: {p.Quantity}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Ошибка при пополнении: " + ex.Message);
+                }
+            }
+
+            static void SellProduct(List<Product> products)
+            {
+                Console.WriteLine("\n--- Продажа товара ---");
+                int code = ReadPositiveInt("Введите код товара: ");
+                Product p = products.Find(x => x.Code == code);
+                if (p == null)
+                {
+                    Console.WriteLine("Товар с таким кодом не найден.");
+                    return;
+                }
+                Console.WriteLine($"Текущее количество на складе: {p.Quantity}");
+                int amount = ReadPositiveInt("Введите количество для продажи: ");
+                try
+                {
+                    p.Sell(amount);
+                    Console.WriteLine($"Продано {amount} шт. Остаток: {p.Quantity}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Ошибка при продаже: " + ex.Message);
+                }
+            }
+
+            static void SearchProducts(List<Product> products)
+            {
+                Console.WriteLine("\n--- Поиск товаров ---");
+                Console.WriteLine("1 - По коду");
+                Console.WriteLine("2 - По названию");
+                Console.WriteLine("3 - По категории");
+                Console.Write("Выберите тип поиска: ");
+                string choice = Console.ReadLine()?.Trim();
+
+                switch (choice)
+                {
+                    case "1":
+                        int code = ReadPositiveInt("Введите код товара: ");
+                        var p = products.Find(x => x.Code == code);
+                        if (p != null)
+                            p.PrintInfo();
+                        else
+                            Console.WriteLine("Товар не найден.");
+                        break;
+
+                    case "2":
+                        string namePart = ReadNonEmptyString("Введите часть или полное название: ");
+                        var foundByName = products.FindAll(x => x.Name.IndexOf(namePart, StringComparison.OrdinalIgnoreCase) >= 0);
+                        if (foundByName.Count == 0)
+                            Console.WriteLine("Товары не найдены.");
+                        else
+                            foundByName.ForEach(x => x.PrintInfo());
+                        break;
+
+                    case "3":
+                        Category cat = ReadCategory();
+                        var foundByCat = products.FindAll(x => x.Category == cat);
+                        if (foundByCat.Count == 0)
+                            Console.WriteLine("Товары не найдены в этой категории.");
+                        else
+                            foundByCat.ForEach(x => x.PrintInfo());
+                        break;
+
+                    default:
+                        Console.WriteLine("Неверный выбор типа поиска.");
+                        break;
+                }
+            }
+
+            static void ShowAll(List<Product> products)
+            {
+                Console.WriteLine("\n--- Список товаров ---");
+                if (products.Count == 0)
+                {
+                    Console.WriteLine("Список товаров пуст.");
+                    return;
+                }
+
+                foreach (var item in products)
+                {
+                    item.PrintInfo();
+                }
+            }
         }
     }
 }
+            
+    
