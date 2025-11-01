@@ -334,7 +334,7 @@ namespace StoreApp
 
                 foreach (var item in products)
                 {
-                    item.PrintInfo();
+                    item.PrintInfo();2
                 }
             }
         }
