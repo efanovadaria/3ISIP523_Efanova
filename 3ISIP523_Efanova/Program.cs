@@ -104,7 +104,6 @@ namespace LibraryApp
             Console.WriteLine("0 - Выход");
         }
 
-        // === Добавление книги ===
         static void AddBook()
         {
             Console.WriteLine("\n--- Добавление книги ---");
@@ -126,7 +125,6 @@ namespace LibraryApp
             }
         }
 
-        // === Удаление книги ===
         static void RemoveBook()
         {
             Console.WriteLine("\n--- Удаление книги ---");
