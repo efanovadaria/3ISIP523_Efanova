@@ -78,7 +78,6 @@ namespace TextStatisticsApp
             return stats;
         }
 
-        // Разделяем текст на слова, убираем знаки препинания
         static string[] SplitWords(string text)
         {
             char[] separators = { ' ', '\n', '\r', '\t', ',', '.', '!', '?', ';', ':', '-', '(', ')', '"' };
@@ -86,7 +85,6 @@ namespace TextStatisticsApp
             return words;
         }
 
-        // Поиск самого короткого слова
         static string FindShortestWord(string[] words)
         {
             if (words.Length == 0) return "";
@@ -99,7 +97,6 @@ namespace TextStatisticsApp
             return shortest;
         }
 
-        // Поиск самого длинного слова
         static string FindLongestWord(string[] words)
         {
             if (words.Length == 0) return "";
