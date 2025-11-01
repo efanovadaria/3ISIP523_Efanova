@@ -109,7 +109,6 @@ namespace TextStatisticsApp
             return longest;
         }
 
-        // Подсчёт количества предложений
         static int CountSentences(string text)
         {
             int count = 0;
@@ -121,7 +120,6 @@ namespace TextStatisticsApp
             return count;
         }
 
-        // Подсчёт количества гласных и согласных
         static void CountVowelsAndConsonants(string text, out int vowels, out int consonants)
         {
             vowels = 0;
@@ -140,7 +138,6 @@ namespace TextStatisticsApp
             }
         }
 
-        // Подсчёт частоты каждой буквы
         static Dictionary<char, int> CountLetterFrequency(string text)
         {
             Dictionary<char, int> freq = new Dictionary<char, int>();
@@ -160,7 +157,6 @@ namespace TextStatisticsApp
             return freq;
         }
 
-        // Вывод статистики на экран
         static void DisplayStats(TextStats stats)
         {
             Console.WriteLine("\n=== Результаты анализа ===");
