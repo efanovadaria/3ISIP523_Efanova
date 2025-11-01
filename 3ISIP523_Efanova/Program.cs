@@ -19,7 +19,7 @@ namespace TextStatisticsApp
 
         static void Main(string[] args)
         {
-            List<TextStats> allStats = new List<TextStats>(); // список для хранения статистики всех текстов
+            List<TextStats> allStats = new List<TextStats>(); 
             bool continueProgram = true;
 
             while (continueProgram)
@@ -28,31 +28,26 @@ namespace TextStatisticsApp
                 Console.WriteLine("Введите текст (минимум 100 символов):");
                 string text = Console.ReadLine();
 
-                // Проверка длины текста
                 while (text.Length < 100)
                 {
                     Console.WriteLine("Ошибка! Текст должен содержать минимум 100 символов. Попробуйте снова:");
                     text = Console.ReadLine();
                 }
 
-                // Создаём и заполняем объект статистики
                 TextStats stats = AnalyzeText(text);
                 allStats.Add(stats);
 
-                // Выводим статистику по текущему тексту
                 DisplayStats(stats);
 
-                // Спрашиваем, хочет ли пользователь продолжить
-                Console.WriteLine("\nХотите ввести новый текст? (y/n)");
+                Console.WriteLine("\nХотите ввести новый текст? (д/н)");
                 string answer = Console.ReadLine().ToLower();
 
-                if (answer == "n")
+                if (answer == "н")
                 {
                     continueProgram = false;
                 }
             }
 
-            // Вывод всех сохранённых статистик
             Console.WriteLine("\n======= История всех анализов =======");
             int index = 1;
             foreach (var stat in allStats)
