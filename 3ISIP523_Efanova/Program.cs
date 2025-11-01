@@ -147,7 +147,6 @@ namespace LibraryApp
             }
         }
 
-        // === Поиск книг ===
         static void SearchBooks()
         {
             Console.WriteLine("\n--- Поиск книг ---");
@@ -181,7 +180,6 @@ namespace LibraryApp
             PrintBooks(found);
         }
 
-        // === Сортировка книг ===
         static void SortBooks()
         {
             Console.WriteLine("\n--- Сортировка книг ---");
