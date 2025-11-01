@@ -198,7 +198,6 @@ namespace LibraryApp
             PrintBooks(sorted);
         }
 
-        // === Самая дорогая и дешевая книга ===
         static void ShowExtremePrices()
         {
             Console.WriteLine("\n--- Самая дорогая и самая дешёвая книга ---");
@@ -218,7 +217,6 @@ namespace LibraryApp
             PrintBooks(books.Where(b => b.Price == maxPrice));
         }
 
-        // === Группировка по авторам ===
         static void GroupByAuthor()
         {
             Console.WriteLine("\n--- Группировка книг по авторам ---");
@@ -230,14 +228,12 @@ namespace LibraryApp
                 Console.WriteLine($"{g.Author}: {g.Count} книг(и)");
         }
 
-        // === Показать все книги ===
         static void ShowAllBooks()
         {
             Console.WriteLine("\n--- Все книги ---");
             PrintBooks(books);
         }
 
-        // === Вспомогательные методы ===
         static void PrintBooks(IEnumerable<Book> list)
         {
             var data = list.ToList();
