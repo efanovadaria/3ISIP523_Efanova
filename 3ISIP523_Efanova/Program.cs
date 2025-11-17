@@ -282,5 +282,5 @@ namespace UniversityManagement
 
             courses[index].PrintInfo();
         }
-    }
+    }.
 }
